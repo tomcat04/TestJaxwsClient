@@ -25,6 +25,8 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _Add_QNAME = new QName("http://server.jaxws.test.com/", "add");
+    private final static QName _GetPersonList_QNAME = new QName("http://server.jaxws.test.com/", "getPersonList");
+    private final static QName _GetPersonListResponse_QNAME = new QName("http://server.jaxws.test.com/", "getPersonListResponse");
     private final static QName _AddResponse_QNAME = new QName("http://server.jaxws.test.com/", "addResponse");
 
     /**
@@ -43,11 +45,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetPersonListResponse }
+     * 
+     */
+    public GetPersonListResponse createGetPersonListResponse() {
+        return new GetPersonListResponse();
+    }
+
+    /**
      * Create an instance of {@link Add }
      * 
      */
     public Add createAdd() {
         return new Add();
+    }
+
+    /**
+     * Create an instance of {@link GetPersonList }
+     * 
+     */
+    public GetPersonList createGetPersonList() {
+        return new GetPersonList();
+    }
+
+    /**
+     * Create an instance of {@link PersonBean }
+     * 
+     */
+    public PersonBean createPersonBean() {
+        return new PersonBean();
     }
 
     /**
@@ -57,6 +83,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://server.jaxws.test.com/", name = "add")
     public JAXBElement<Add> createAdd(Add value) {
         return new JAXBElement<Add>(_Add_QNAME, Add.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPersonList }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server.jaxws.test.com/", name = "getPersonList")
+    public JAXBElement<GetPersonList> createGetPersonList(GetPersonList value) {
+        return new JAXBElement<GetPersonList>(_GetPersonList_QNAME, GetPersonList.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPersonListResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server.jaxws.test.com/", name = "getPersonListResponse")
+    public JAXBElement<GetPersonListResponse> createGetPersonListResponse(GetPersonListResponse value) {
+        return new JAXBElement<GetPersonListResponse>(_GetPersonListResponse_QNAME, GetPersonListResponse.class, null, value);
     }
 
     /**

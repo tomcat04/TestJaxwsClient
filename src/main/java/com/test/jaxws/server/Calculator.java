@@ -1,6 +1,7 @@
 
 package com.test.jaxws.server;
 
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -41,5 +42,17 @@ public interface Calculator {
         int arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         int arg1);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<com.test.jaxws.server.PersonBean>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getPersonList", targetNamespace = "http://server.jaxws.test.com/", className = "com.test.jaxws.server.GetPersonList")
+    @ResponseWrapper(localName = "getPersonListResponse", targetNamespace = "http://server.jaxws.test.com/", className = "com.test.jaxws.server.GetPersonListResponse")
+    @Action(input = "http://server.jaxws.test.com/Calculator/getPersonListRequest", output = "http://server.jaxws.test.com/Calculator/getPersonListResponse")
+    public List<PersonBean> getPersonList();
 
 }

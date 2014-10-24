@@ -6,7 +6,10 @@
 
 package com.test.jaxws.client;
 
+import com.test.jaxws.server.Calculator;
 import com.test.jaxws.server.CalculatorImplService;
+import com.test.jaxws.server.PersonBean;
+import java.util.List;
 
 /**
  *
@@ -20,8 +23,9 @@ public class TestClient {
     public static void main(String[] args) {
         // TODO code application logic here
         CalculatorImplService c = new CalculatorImplService();
-        int s = c.getCalculatorImplPort().add(1, 3);
-        System.out.println("sssssssss: " + s);
+        Calculator port = c.getCalculatorImplPort();
+        List<PersonBean> s = port.getPersonList();
+        System.out.println("sssssssss: " + s.size());
     }
     
 }
